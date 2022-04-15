@@ -6,7 +6,7 @@ Removing flash protection from the nRF52 using JLink + OpenOCD
 4. use command nrf52.dap apreg 1 0x0c to check protection is disable
 SWD DPIDR 0x2ba01477
 0x00000001 <----disable 
-0x00000001 <----not disable 
+0x00000000 <----not disable 
 5. disconnect jlink
 6. Success
 
