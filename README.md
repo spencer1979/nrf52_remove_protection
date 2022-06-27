@@ -1,14 +1,18 @@
 # nrf52_remove_protection
-Removing flash protection from the nRF52 using JLink + OpenOCD
-1. openocd -c 'adapter driver jlink; transport select swd; source [find target/nrf52.cfg]'
-2. telnet localhost 4444
-3. nrf52.dap apreg 1 0x04 0x01
-4. use command nrf52.dap apreg 1 0x0c to check protection is disable
-SWD DPIDR 0x2ba01477
-0x00000001 <----disable 
-0x00000000 <----not disable 
-5. disconnect jlink
-6. Success
-
+# Removing flash protection from the nRF52 using JLink + OpenOCD
+## 1. Create service
+```openocd -c 'adapter driver jlink; transport select swd; source [find target/nrf52.cfg]'``` 
+## or 
+```openocd -c 'interface jlink; transport select swd; source [find target/nrf52.cfg]'``` 
+## 2. Connect 
+```telnet localhost 4444```
+## 3. Remove flash protection 
+```dap apreg 1 0x04 0x01```
+## 4. Check protection status
+```dap apreg 1 0x0c```\
+SWD DPIDR 0x2ba01477\
+0x00000001 <----flash protection has been removed.\
+0x00000000 <----flash protection not removed.\
+## 5. finish and disconnect jlink\
 Reference link 
 https://blog.dbrgn.ch/2020/5/16/nrf52-unprotect-flash-jlink-openocd/
