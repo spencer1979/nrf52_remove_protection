@@ -5,9 +5,9 @@
 ## 2. Connect 
 ```telnet localhost 4444```
 ## 3. Remove flash protection 
-```dap apreg 1 0x04 0x01```
+```nrf52.dap apreg 1 0x04 0x01```
 ## 4. Check protection status
-```dap apreg 1 0x0c```\
+```nrf52.dap apreg 1 0x0c```\
 SWD DPIDR 0x2ba01477\
 0x00000001 <----flash protection has been removed.\
 0x00000000 <----flash protection not removed.\
